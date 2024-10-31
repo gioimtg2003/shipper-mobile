@@ -15,6 +15,7 @@ interface ScanButtonProps extends ViewProps {
     size?: number;
     strokeWidth?: number;
     onCapture?: () => void;
+    disable?: boolean;
 }
 
 const ScanButton = React.forwardRef<ViewProps, ScanButtonProps>(
@@ -25,6 +26,7 @@ const ScanButton = React.forwardRef<ViewProps, ScanButtonProps>(
             strokeWidth = 2.5,
             style,
             onCapture,
+            disable = false,
             ...props
         },
         ref
@@ -66,6 +68,7 @@ const ScanButton = React.forwardRef<ViewProps, ScanButtonProps>(
                 ]}
             >
                 <TouchableOpacity
+                    disabled={disable}
                     activeOpacity={0.7}
                     onPress={onCapture}
                     style={[
